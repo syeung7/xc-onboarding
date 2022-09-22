@@ -12,14 +12,24 @@
 </head>
 
 <body>
-    <h1> Select Country and State</h1> 
+    <h1> Select Country </h1> 
     <form class="dropdown-group">
     <select id="country" size="1">
         <option value="" selected="selected">-- Select Country --</option> 
-    </select>
+        <input type="text" placeholder="Add Country Name"  id="addCountryName" required>
+        <input type="text" placeholder="Add Country Code"  id="addCountryCode" required>
+        <button onclick="insertValue();">Add</button>
+        
+      </select>
+      
+
+    
 
     <select id="state" size="1">
         <option value="" selected="selected">-- Select State --</option> 
+        <input type="text" value="Add State Name" id="addStateName" required>
+        <input type="text" value="Add State Code" id="addStateCode" required>
+        <button onclick="insertValue();">Add</button>
     </select>
     </form>
   </div>

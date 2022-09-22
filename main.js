@@ -93,17 +93,34 @@ function create_dropdowns() {
  * add a new country by sending a POST call to
  * https://xc-countries-api.herokuapp.com/api/countries/
  */
-function add_new_country() {
-    return;
-}
+
+//function add_new_country() {
+
+   /*  let xhr = new XMLHttpRequest();
+    xhr.open("POST", "https://xc-countries-api.herokuapp.com/api/countries/");
+
+    xhr.setRequestHeader("Accept", "application/json");
+    xhr.setRequestHeader("Content-Type", "application/json");
+
+    xhr.onload = () => console.log(xhr.responseText);
+    
+    let data = `{ 
+    "code": "${addCountryCode}",
+    "name": "${addCountryName}",
+    }`;
+
+    xhr.send(data); */
+    
+        
+    
 
 /**
  * todo: 4. Create a way to add new states by sending a POST call to https://xc-countries-api.herokuapp.com/api/states/
  */
-function add_new_state() {
-    return;
-}
+//function add_new_state() {
+    //return;
+//}
 
 create_dropdowns()
-add_new_country()
-add_new_state()
+//add_new_country()
+//add_new_state()
