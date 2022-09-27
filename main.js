@@ -39,7 +39,7 @@ function create_dropdowns() {
             country_dropdown.add(option);
         }
 
-        console.log(countrylist)
+        //console.log(countrylist)
 
         // if a country get selected, call state dropdown api
         function create_states_dropdown() {
@@ -88,32 +88,44 @@ function create_dropdowns() {
     })
 }
 
-/**
- * todo: 3. Once all of that is done, create a way to
- * add a new country by sending a POST call to
- * https://xc-countries-api.herokuapp.com/api/countries/
- */
-
-    let addCountryName = getElementById("addCountryName");
-    let addCountryCode = getElementById("addCountryCode");
-
-//function add_new_country() {
-
-     let xhr = new XMLHttpRequest();
-    xhr.open("POST", "https://xc-countries-api.herokuapp.com/api/countries/");
-
-    xhr.setRequestHeader("Accept", "application/json");
-    xhr.setRequestHeader("Content-Type", "application/json");
-
-    xhr.onload = () => console.log(xhr.responseText);
     
-    let data = `{ 
-    "code": "${addCountryCode}",
-    "name": "${addCountryName}",
-    }`;
-
-    xhr.send(data); 
+    // get input from user and store it? 
+    function add_new_country() {
+        var submit = document.getElementById("submitButton1"); 
+        var addCountryName = document.getElementById("addCountryName").value;
     
+        var addCountryCode = document.getElementById("addCountryCode").value;
+
+       /*  let data = {
+            "addCountryName": addCountryName,
+            "addCountryCode": addCountryCode
+        };
+
+        fetch('https://xc-countries-api.herokuapp.com/api/countries/', {
+        method: 'POST', 
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(data),
+        })
+        .then((response) => response.json())
+        .then((data) => {
+            console.log('Success:', data);
+            
+            create_dropdowns();
+        })
+        .catch((error) => {
+            console.error('Error:', error);
+        }); */
+      
+        
+        // addCountryCode.value = "tawded2123123";
+
+        //testing  
+        //console.log(addCountryName)
+
+       
+}
         
     
 
@@ -125,5 +137,5 @@ function create_dropdowns() {
 //}
 
 create_dropdowns()
-//add_new_country()
+add_new_country()
 //add_new_state()
