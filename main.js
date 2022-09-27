@@ -94,9 +94,12 @@ function create_dropdowns() {
  * https://xc-countries-api.herokuapp.com/api/countries/
  */
 
+    let addCountryName = getElementById("addCountryName");
+    let addCountryCode = getElementById("addCountryCode");
+
 //function add_new_country() {
 
-   /*  let xhr = new XMLHttpRequest();
+     let xhr = new XMLHttpRequest();
     xhr.open("POST", "https://xc-countries-api.herokuapp.com/api/countries/");
 
     xhr.setRequestHeader("Accept", "application/json");
@@ -109,7 +112,7 @@ function create_dropdowns() {
     "name": "${addCountryName}",
     }`;
 
-    xhr.send(data); */
+    xhr.send(data); 
     
         
     
