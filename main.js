@@ -39,7 +39,7 @@ function create_dropdowns() {
             country_dropdown.add(option);
         }
 
-        //console.log(countrylist)
+        // console.log(countrylist)
 
         // if a country get selected, call state dropdown api
         function create_states_dropdown() {
@@ -57,7 +57,7 @@ function create_dropdowns() {
                 // call the new state api and get a promise object return,
                 // parse it and get the object's value in a variable using Promise.resolve(API).then(variable name)
                 Promise.resolve(fun(stateurl)).then((statelist) => {
-                    console.log(stateurl)
+                    // console.log(stateurl)
 
                     // clean dropdown options from previous selected country
                     removeOptions(document.getElementById('state'));
@@ -73,69 +73,83 @@ function create_dropdowns() {
                         const option = document.createElement('option');
                         option.text = statelist[index].name;
                         state_dropdown.add(option);
+
+
                     }
                 })
             }
 
         }
 
+
+
         // country select change event
         const country_select = document.getElementById("country");
         country_select.addEventListener('change', create_states_dropdown);
 
-        create_states_dropdown();
+
 
     })
 }
 
-    
-    // get input from user and store it? 
-    function add_new_country() {
-        var submit = document.getElementById("submitButton1"); 
-        var addCountryName = document.getElementById("addCountryName").value;
-    
-        var addCountryCode = document.getElementById("addCountryCode").value;
 
-       /*  let data = {
-            "addCountryName": addCountryName,
-            "addCountryCode": addCountryCode
-        };
+// once user click "add", execute following code
+function add_new_country() {
 
-        fetch('https://xc-countries-api.herokuapp.com/api/countries/', {
-        method: 'POST', 
-        headers: {
-            'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(data),
-        })
-        .then((response) => response.json())
-        .then((data) => {
-            console.log('Success:', data);
-            
-            create_dropdowns();
-        })
-        .catch((error) => {
-            console.error('Error:', error);
-        }); */
-      
-        
-        // addCountryCode.value = "tawded2123123";
+    var countryName = document.getElementById('addCountryName').value;
+    var countryCode = document.getElementById('addCountryCode').value;
 
-        //testing  
-        //console.log(addCountryName)
+    // what should be sent over POST request?
+    var posturl = 'https://xc-countries-api.herokuapp.com/api/countries/'
 
-       
-}
-        
-    
+    let data = {
+        "code": countryCode,
+        "name": countryName
 
-/**
- * todo: 4. Create a way to add new states by sending a POST call to https://xc-countries-api.herokuapp.com/api/states/
- */
+    };
+
+    alert(JSON.stringify(data))
+
+    fetch(posturl, {
+      method: 'POST', 
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(data),
+    })
+      .then((response) => response.json())
+      .then((data) => {
+        alert(JSON.stringify(data))
+        console.log('Success:', data);
+        create_dropdowns()
+
+      })
+      .catch((error) => {
+        console.error('Error:', error);
+      });
+
+
+
+
+
+
+};
+
+
+
+
+create_dropdowns()
+
+
+
+
+
+
 //function add_new_state() {
     //return;
 //}
 
-create_dropdowns()
-add_new_country()
+/**
+ * todo: 4. Create a way to add new states by sending a POST call to https://xc-countries-api.herokuapp.com/api/states/
+ */
 //add_new_state()
