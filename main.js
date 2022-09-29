@@ -96,49 +96,53 @@ function create_dropdowns() {
 // once user click "add", execute following code
 function add_new_country() {
 
+     
     var countryName = document.getElementById('addCountryName').value;
     var countryCode = document.getElementById('addCountryCode').value;
-
+    console.log(countryCode);
     // what should be sent over POST request?
     var posturl = 'https://xc-countries-api.herokuapp.com/api/countries/'
 
     let data = {
         "code": countryCode,
         "name": countryName
-
     };
 
-    alert(JSON.stringify(data))
-
-    fetch(posturl, {
-      method: 'POST', 
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify(data),
+     fetch('https://xc-countries-api.herokuapp.com/api/countries/' , {
+        method: 'POST' ,
+        headers: {
+            'Content-Type': 'application/json' ,
+        } ,
+        body: JSON.stringify(data) ,
     })
-      .then((response) => response.json())
-      .then((data) => {
-        alert(JSON.stringify(data))
-        console.log('Success:', data);
-        create_dropdowns()
 
-      })
-      .catch((error) => {
-        console.error('Error:', error);
-      });
+   .then((response) => response.json())
+    .then(data => console.log(data));  
+     alert(JSON.stringify(data))
+
+     
+    /* let xhr = new XMLHttpRequest();
+    xhr.open("POST", posturl);
+    
+    //xhr.setRequestHeader("Accept", "application/json");
+    xhr.setRequestHeader("Content-Type", "application/json");
+    
+    xhr.onload = () => console.log(xhr.responseText);
+
+    
+    xhr.send(JSON.stringify(data));   */
+
+
+}; 
 
 
 
-
-
-
-};
-
+  
 
 
 
 create_dropdowns()
+
 
 
 
