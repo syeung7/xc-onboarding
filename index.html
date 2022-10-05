@@ -7,29 +7,31 @@
   <link rel="stylesheet" href="style.css">
   <title>All Countries</title>
   </head>
- 
+
 
 </head>
 
 <body>
-    <h1> Select Country </h1> 
+    <h1> Select Country </h1>
     <form class="dropdown-group">
-    <select id="country" size="1">
-        <option value="" selected="selected">-- Select Country --</option> 
-        <input type="text" placeholder="Add Country Name"  id="addCountryName" required>
-        <input type="text" placeholder="Add Country Code"  id="addCountryCode" required>
+
+    <form id = "addCountryform"></form>
+    <select id="country" size="1" onChange="selected(this)" >
+        <option value="" id = "" code = "" selected="selected" >-- Select Country --</option>
+        <input type="text" placeholder="Add Country Name"  id="addCountryName" >
+        <input type="text" placeholder="Add Country Code"  id="addCountryCode" >
         <button id="submitButton1" onclick="add_new_country()"> Add</button>
-        
+
       </select>
-      
 
-    
 
+
+    <form id = "addStateform"></form>
     <select id="state" size="1">
-        <option value="" selected="selected">-- Select State --</option> 
-        <!-- <input type="text" placeholder="Add State Name" value="" id="addStateName" required>
-        <input type="text" placeholder="Add State Code" value="" id="addStateCode" required>
-        <button onclick="insertValue();">Add</button> -->
+        <option value="" selected="selected">-- Select State --</option>
+        <input type="text" placeholder="Add State Name" value="" id="addStateName" >
+        <input type="text" placeholder="Add State Code" value="" id="addStateCode" >
+        <button id="submitButton2" onclick="add_new_state();">Add</button>
     </select>
     </form>
   </div>
